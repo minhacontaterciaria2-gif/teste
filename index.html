@@ -1,0 +1,478 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Uma carta para você</title>
+
+    <!-- Fonte manuscrita -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Georgia, serif;
+        }
+
+
+        /* =========================
+           PRIMEIRA TELA
+        ========================= */
+
+        #inicio {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: #eee4d5;
+        }
+
+        .botao-abrir {
+            padding: 17px 38px;
+
+            background-color: #c9ad91;
+            color: #fffaf4;
+
+            border: none;
+            border-radius: 35px;
+
+            font-family: Georgia, serif;
+            font-size: 19px;
+
+            cursor: pointer;
+
+            box-shadow: 0 4px 12px rgba(100, 75, 50, 0.12);
+
+            transition: all 0.3s ease;
+        }
+
+        .botao-abrir:hover {
+            background-color: #b99a7d;
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           SEGUNDA TELA - PAPEL
+        ========================= */
+
+        #carta {
+            display: none;
+
+            min-height: 100vh;
+            width: 100%;
+
+            background-color: #f8f3e6;
+
+            /* Imagem do papel amassado */
+            background-image: url("papel.jpeg");
+
+            background-size: 100% auto;
+            background-position: center top;
+            background-repeat: repeat-y;
+        }
+
+
+        /* =========================
+           ORGANIZAÇÃO DA CARTA
+        ========================= */
+
+        .layout-carta {
+
+            width: 100%;
+            min-height: 100vh;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(100px, 1fr)
+                minmax(0, 760px)
+                minmax(100px, 1fr);
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 45px 25px;
+        }
+
+
+        /* =========================
+           ÁREA DE ESCRITA
+        ========================= */
+
+        .area-escrita {
+
+            width: 100%;
+            min-height: 75vh;
+
+            padding: 55px 35px;
+
+            position: relative;
+        }
+
+        .texto-carta {
+
+            font-family: 'Caveat', cursive;
+
+            font-size: clamp(27px, 3vw, 36px);
+
+            font-weight: 500;
+
+            line-height: 40px;
+
+            color: #39372f;
+
+            white-space: pre-wrap;
+
+            overflow-wrap: break-word;
+        }
+
+
+        /* =========================
+           STICKERS
+        ========================= */
+
+        .grupo-stickers {
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-around;
+            align-items: center;
+
+            gap: 35px;
+
+            width: 100%;
+            height: 100%;
+        }
+
+        .sticker {
+
+            display: block;
+
+            width: 100%;
+            max-width: 155px;
+
+            height: auto;
+
+            object-fit: contain;
+
+            animation: flutuar 4s ease-in-out infinite;
+
+            filter: drop-shadow(0 4px 5px rgba(0,0,0,0.12));
+        }
+
+
+        /* Tamanhos individuais */
+
+        .bubbline {
+            max-width: 165px;
+            animation-delay: 0s;
+        }
+
+        .glifos {
+            max-width: 125px;
+            animation-delay: 0.8s;
+        }
+
+        .grifinoria {
+            max-width: 145px;
+            animation-delay: 1.2s;
+        }
+
+        .lumity {
+            max-width: 150px;
+            animation-delay: 0.5s;
+        }
+
+        .pedras {
+            max-width: 125px;
+            animation-delay: 1.5s;
+        }
+
+
+        /* =========================
+           ANIMAÇÃO DOS STICKERS
+        ========================= */
+
+        @keyframes flutuar {
+
+            0%, 100% {
+                transform: translateY(0px) rotate(-2deg);
+            }
+
+            50% {
+                transform: translateY(-13px) rotate(2deg);
+            }
+
+        }
+
+
+        /* =========================
+           AJUSTES PARA TELAS MENORES
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .layout-carta {
+
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+
+                padding: 30px 20px;
+            }
+
+            .grupo-stickers {
+
+                flex-direction: row;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                height: auto;
+
+                gap: 18px;
+
+                padding: 10px;
+            }
+
+            .sticker {
+                width: 23%;
+                max-width: 110px;
+            }
+
+            .area-escrita {
+
+                min-height: 60vh;
+
+                padding: 35px 25px;
+
+            }
+
+            .texto-carta {
+
+                font-size: 29px;
+                line-height: 40px;
+
+            }
+
+        }
+
+
+        /* =========================
+           AJUSTES PARA CELULARES
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            #inicio {
+                padding: 20px;
+            }
+
+            .botao-abrir {
+                font-size: 18px;
+                padding: 16px 34px;
+            }
+
+            .layout-carta {
+                padding: 18px 12px;
+                gap: 12px;
+            }
+
+            .grupo-stickers {
+                gap: 12px;
+                padding: 8px 3px;
+            }
+
+            .sticker {
+                width: 25%;
+                max-width: 85px;
+            }
+
+            .area-escrita {
+                min-height: 65vh;
+                padding: 25px 18px;
+            }
+
+            .texto-carta {
+                font-size: 27px;
+                line-height: 40px;
+            }
+
+        }
+
+
+        /* Respeita quem prefere menos animações */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .sticker {
+                animation: none;
+            }
+
+            .botao-abrir {
+                transition: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- PRIMEIRA TELA -->
+
+    <section id="inicio">
+
+        <button class="botao-abrir"
+                onclick="abrirCarta()">
+
+            Abrir a carta
+
+        </button>
+
+    </section>
+
+
+
+    <!-- SEGUNDA TELA -->
+
+    <section id="carta">
+
+        <div class="layout-carta">
+
+
+            <!-- STICKERS DO LADO ESQUERDO -->
+
+            <div class="grupo-stickers">
+
+                <img src="bubbline.png"
+                     class="sticker bubbline"
+                     alt="Bubbline">
+
+                <img src="glifos.png"
+                     class="sticker glifos"
+                     alt="Glifos">
+
+            </div>
+
+
+
+            <!-- TEXTO DA CARTA -->
+
+            <div class="area-escrita">
+
+                <p class="texto-carta">
+                    <span id="texto"></span>
+                </p>
+
+            </div>
+
+
+
+            <!-- STICKERS DO LADO DIREITO -->
+
+            <div class="grupo-stickers">
+
+                <img src="grifinoria.png"
+                     class="sticker grifinoria"
+                     alt="Brasão de Grifinória">
+
+                <img src="lumity.png"
+                     class="sticker lumity"
+                     alt="Lumity">
+
+                <img src="pedras.png"
+                     class="sticker pedras"
+                     alt="Pedras mágicas">
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // Mensagem da carta
+
+        const mensagem =
+        "o rato roeu a roupa do rei de roma, a rainha com raiva rasgou o resto.";
+
+
+        // Abrir a carta
+
+        function abrirCarta() {
+
+            document.getElementById("inicio").style.display = "none";
+
+            document.getElementById("carta").style.display = "block";
+
+            escreverTexto();
+
+        }
+
+
+        // Animação de escrita
+
+        function escreverTexto() {
+
+            const elemento = document.getElementById("texto");
+
+            let contador = 0;
+
+            // Intervalo entre os caracteres
+            const velocidade = 100;
+
+            function escrever() {
+
+                if (contador < mensagem.length) {
+
+                    elemento.textContent += mensagem.charAt(contador);
+
+                    contador++;
+
+                    setTimeout(escrever, velocidade);
+
+                }
+
+            }
+
+            escrever();
+
+        }
+
+    </script>
+
+
+</body>
+</html>
